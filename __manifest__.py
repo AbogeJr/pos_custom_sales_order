@@ -1,5 +1,5 @@
 {
-    "name": "POS Custom Screen",
+    "name": "POS Custom Sales Order",
     "version": "1.0",
     "depends": ["point_of_sale", "sale_management"],
     "assets": {

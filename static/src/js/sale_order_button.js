@@ -42,17 +42,17 @@ odoo.define("pos_custom_screen.CategoryControlButton", function (require) {
           var temp_list = [];
           for (var i = 0; i < lines.length; i++) {
             const dict = {
-              amount_undiscounted: lines[i].quantity,
-              amount_untaxed: lines[i].get_display_price(),
-              tax_totals: lines[i].get_discount(),
-              partner_id: lines[i].product.id,
+              quantity: lines[i].quantity,
+              price: lines[i].get_display_price(),
+              discount: lines[i].get_discount(),
+              product: lines[i].product.id,
             };
             temp_list.push(dict);
           }
           this.env.services.rpc({
             model: "sale.order",
-            method: "create",
-            args: [temp_list],
+            method: "create_sale_order",
+            args: [, temp_list, cus],
           });
         }
       }
